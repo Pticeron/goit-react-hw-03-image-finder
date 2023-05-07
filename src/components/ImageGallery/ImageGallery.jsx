@@ -1,10 +1,7 @@
-// {/* <ul class="gallery">
-//   {/* <!-- Набір <li> із зображеннями --> */}
-// </ul> */}
-
 import propTypes from 'prop-types';
 import css from './ImageGallery.module.css';
-import { ImageGalleryItem } from  'component/ImageGalleryItem/ImageGalleryItem';
+import { ImageGalleryItem } from  '../ImageGalleryItem/ImageGalleryItem';
+
 
 export const ImageGallery = ({ images, onImageClick }) => (
   <ul className={css.ImageGallery}>

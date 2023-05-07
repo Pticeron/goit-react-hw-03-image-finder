@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import { Searchbar } from  './Searchbar/Searchbar';
-import { fetchImages } from './api/fetchImages';
-import { ImageGallery } from './ImageGallery/ImageGallery';
-import { Button } from './Button/Button';
-import { Loader } from './Loader/Loader';
+import { Component } from 'react';
+import { Searchbar }  from  './Searchbar/Searchbar'
+import { fetchImages }   from './api/fetchImages';
+import { ImageGallery }  from './ImageGallery/ImageGallery';
+import { Button }  from './Button/Button';
+import { Loader }  from './Loader/Loader';
 import { Modal } from './Modal/Modal';
+import React from 'react';
 
 
 export class App extends Component {
@@ -113,20 +114,3 @@ export class App extends Component {
 
 
 
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };
-// KEY = 34615621-fecaa10f9eea33d0198f958f8;

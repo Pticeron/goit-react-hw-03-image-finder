@@ -1,15 +1,25 @@
-<header class="searchbar">
-  <form class="form">
-    <button type="submit" class="button">
-      <span class="button-label">Search</span>
-    </button>
+import propTypes from 'prop-types';
+import css from './Searchbar.module.css';
 
-    <input
-      class="input"
-      type="text"
-      autocomplete="off"
-      autofocus
-      placeholder="Search images and photos"
-    />
-  </form>
-</header>
+export const Searchbar = ({ onSubmit }) => (
+  <header className={css.Searchbar}>
+    <form className={css.SearchForm} onSubmit={onSubmit}>
+      <button type="submit" className={css.SearchFormButton}>
+        <span className={css.SearchFormButtonLabel}>Search</span>
+      </button>
+
+      <input
+        name="inputForSearch"
+        className={css.SearchFormInput}
+        type="text"
+        autoComplete="off"
+        autoFocus
+        placeholder="Search images and photos"
+      />
+    </form>
+  </header>
+);
+
+Searchbar.propTypes = {
+  onSubmit: propTypes.func,
+};

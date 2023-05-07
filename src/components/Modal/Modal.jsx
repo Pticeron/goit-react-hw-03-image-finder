@@ -1,9 +1,3 @@
-{/* <div class="overlay">
-  <div class="modal">
-    <img src="" alt="" />
-  </div>
-</div> */}
-
 import css from './Modal.module.css';
 import propTypes from 'prop-types';
 
