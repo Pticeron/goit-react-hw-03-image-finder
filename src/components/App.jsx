@@ -87,7 +87,7 @@ export class App extends Component {
         ) : (
           <React.Fragment>
             <Searchbar onSubmit={this.handleSubmit} />
-            <ImageGallery
+              <ImageGallery
               onImageClick={this.handleImageClick}
               images={this.state.images}
             />
