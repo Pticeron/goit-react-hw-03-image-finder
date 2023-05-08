@@ -2,17 +2,16 @@
 import propTypes from 'prop-types';
 import css from './ImageGalleryItem.module.css';
 
-export const ImageGalleryItem = ({ image, onImageClick }) => {
-  const fullImage = () => onImageClick(image.largeImageURL);
-
+export const ImageGalleryItem = ({ picture, onOpenPicture }) => {
+  
   return (
-    <li className={css.ImageGalleryItem}>
-      <img
-        src={image.webformatURL}
-        alt={image.tags}
-        className={css.ImageGalleryItemImage}
-        onClick={fullImage}
-      />
+    <li
+      className={css.ImageGalleryItem}
+      onClick={() => {
+        onOpenPicture(picture);
+      }}
+    >
+      <img src={picture.webformatURL} alt={picture.tags} className={css.ImageGalleryItemImage} />
     </li>
   );
 };
