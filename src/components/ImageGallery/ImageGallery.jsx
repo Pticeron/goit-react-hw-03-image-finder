@@ -3,19 +3,15 @@ import css from './ImageGallery.module.css';
 import { ImageGalleryItem } from  '../ImageGalleryItem/ImageGalleryItem';
 
 
-export const ImageGallery = ({ images, onImageClick }) => (
-  <ul className={css.ImageGallery}>
-    {images.map(image => {
-      return (
-        <ImageGalleryItem
-          key={image.id}
-          image={image}
-          onImageClick={onImageClick}
-        />
-      );
-    })}
-  </ul>
-);
+export const ImageGallery = ({ images, togleModal }) => {
+  return (
+    <>
+      <ul className={css.gallery}>
+        <ImageGalleryItem togleModal={togleModal} images={images} />
+      </ul>
+    </>
+  );
+};
 
 ImageGallery.propTypes = {
   images: propTypes.arrayOf(
@@ -23,5 +19,5 @@ ImageGallery.propTypes = {
       id: propTypes.number.isRequired,
     }),
   ),
-  onImageClick: propTypes.func.isRequired,
+  togleModal: propTypes.func.isRequired,
 };

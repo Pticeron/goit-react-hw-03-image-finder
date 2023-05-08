@@ -8,34 +8,34 @@ const modalRoot = document.querySelector('#modal-root');
 
 export class Modal extends Component {
     componentDidMount() {
-      window.addEventListener('keydown', this.handleKeyDown);
+      window.addEventListener('keydown', this.keyDown);
     }
-  
-    componentWillUnmount() {
-      window.removeEventListener('keydown', this.handleKeyDown);
-    }
-  
-    handleKeyDown = event => {
+
+    keyDown = event => {
       if (event.code === 'Escape') {
-        this.props.onClose();
+        this.props.closeModal();
       }
     };
   
-    handleOverlayClick = event => {
+    componentWillUnmount() {
+      window.removeEventListener('keydown', this.keyDown);
+    }
+  
+    
+  
+    handleClose = event => {
       if (event.currentTarget === event.target) {
-        this.props.onClose();
+        this.props.closeModal();
       }
     };
   
     render() {
-      return createPortal(
-        <div className={css.Overlay} onClick={this.handleOverlayClick}>
-          <div className={css.Modal}>{this.props.children}</div>
-        </div>,
-        modalRoot,
-      );
+          return createPortal(<div onClick={this.handleClose} className={css.Overlay}>
+          <div className={css.Modal}>{this.props.children}</div> 
+        </div>, modalRoot)
+      }
     }
-  }
+  
   
   Modal.defaultProps = {
     children: null,
@@ -43,6 +43,6 @@ export class Modal extends Component {
   
   Modal.propTypes = {
     children: propTypes.node,
-    onClose: propTypes.func.isRequired,
+    closeModal: propTypes.func.isRequired,
   };
   
