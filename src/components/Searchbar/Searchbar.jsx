@@ -3,16 +3,31 @@ import { toast } from 'react-hot-toast';
 import { BiSearch } from 'react-icons/bi';
 import propTypes from 'prop-types';
 import css from './Searchbar.module.css';
+import Notiflix from 'notiflix';
 
 export class Searchbar extends Component {
   state = {
-    search: '',
+    query: '',
   };
 
   onChangeInput = evt => {
-    const { name, value } = evt.currentTarget;
-    this.setState({ [name]: value });
+    const query = evt.currentTarget.value;
+    this.setState({ query: query });
   };
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    if (this.state.query.trim() === '') {
+      return Notiflix.Notify.warning(
+        'Please enter key words for search.',
+    
+      );
+    }
+    this.props.onSubmit(this.state);
+    this.setState({ query: '' });
+  };
+
 
   resetForm = () => {
     this.setState({ search: '' });

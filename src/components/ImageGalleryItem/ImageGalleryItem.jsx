@@ -28,6 +28,8 @@ ImageGalleryItem.propTypes = {
   images: propTypes.arrayOf(
     propTypes.shape({
       id: propTypes.number.isRequired,
+      webformatURL: propTypes.string.isRequired,
+      tags: propTypes.string.isRequired,
     }),
   ),
   togleModal: propTypes.func.isRequired,
