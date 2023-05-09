@@ -4,49 +4,41 @@ import { BiSearch } from 'react-icons/bi';
 import propTypes from 'prop-types';
 import css from './Searchbar.module.css';
 
-
 export class Searchbar extends Component {
   state = {
     search: '',
   };
 
+  onChangeInput = evt => {
+    const { name, value } = evt.currentTarget;
+    this.setState({ [name]: value });
+  };
 
-    onChangeInput = (evt) => {
-        const { name, value } = evt.currentTarget; 
-        this.setState({ [name]: value }); 
-  }
-
-  // функція для очищення поля вводу
-    resetForm = () => {
-     this.setState({ search: '' });
-    }
+  resetForm = () => {
+    this.setState({ search: '' });
+  };
 
   render() {
     return (
       <header className={css.searchbar}>
         <form
-
-          // функція для відправки запиту
           onSubmit={evt => {
-                    evt.preventDefault(); 
+            evt.preventDefault();
 
-                    // перевірка на пустий запит
-                    if (this.state.search.trim() === '') {
-                      return toast.error('Enter text for search.');                     }
+            if (this.state.search.trim() === '') {
+              return toast.error('Enter text for search.');
+            }
 
-            
             this.props.handleSubmit(this.state.search);
             this.resetForm();
           }}
           className={css.Form}
         >
-
-          
           <button type="submit" className={css.Button}>
             <BiSearch size="20" />
           </button>
 
-            <input
+          <input
             value={this.state.search}
             onChange={this.onChangeInput}
             className={css.Input}
