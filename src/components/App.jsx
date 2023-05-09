@@ -67,6 +67,9 @@ export class App extends Component {
   };
 
   handleSubmit = search => {
+    if (this.state.search === search){
+      return;
+    }
     this.setState({
       search,
       images: [],
@@ -123,18 +126,4 @@ export class App extends Component {
   }
 }
 
-// // state = {
-//   images: [],
-//   query: '',
-//   page: 1,
-//   isLoading: false,
-//   showModal: false,
-//   largeImage: '',
-//   tags: '',
-//   total: 0,
-//   error: null,
-// };
-// const totalPage = total / images.length;
-// {totalPage > 1 && !isLoading && images.length !== 0 && (
-//         <Button onClick={this.onLoadMore} />
-//       )}
+
