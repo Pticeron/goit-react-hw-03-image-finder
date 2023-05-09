@@ -38,12 +38,12 @@ export class Searchbar extends Component {
 
           <input
             value={this.state.search}
-            onChange={this.onChangeInput} // виклик функції для зміни стану
+            onChange={this.onChangeInput} 
             className={css.Input}
             name="search"
             type="text"
             autoComplete="off"
-            autoFocus // автофокус на полі вводу
+            autoFocus 
             placeholder="Search images and photos"
           />
         </form>
